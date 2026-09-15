@@ -1,17 +1,33 @@
 # 📱 Contact Manager — Frontend
 
-The frontend of the **Contact Manager** application built with **React, JavaScript, Vite, Axios, and CSS**.
+A responsive **React frontend** for a full-stack Contact Manager application.
 
-It provides a responsive user interface for managing contacts through the backend REST API.
+The frontend allows users to create, view, edit, update, delete, search, and filter contacts through a REST API built with Node.js and Express.
 
 ---
 
-## 🚀 Features
+## 🌐 Live Application
 
-- ➕ Add contacts
-- 👀 Display all contacts
+**Frontend — Vercel**
+
+[Contact Manager Live App](https://contact-manager-five-blond.vercel.app/?utm_source=chatgpt.com)
+
+**Backend API — Render**
+
+[Contact Manager API](https://contact-manager-api-x1er.onrender.com/?utm_source=chatgpt.com)
+
+**GitHub Repository**
+
+[Contact Manager on GitHub](https://github.com/Mobin977/contact-manager?utm_source=chatgpt.com)
+
+---
+
+## ✨ Features
+
+- ➕ Add new contacts
+- 👀 View all contacts
 - ✏️ Edit contacts
-- 🔄 Update contacts
+- 🔄 Update contact information
 - 🗑️ Delete contacts
 - 🔍 Search by name
 - 📧 Search by email
@@ -19,21 +35,58 @@ It provides a responsive user interface for managing contacts through the backen
 - 🏷️ Filter by category
 - 🔎 Combined search and category filtering
 - 🧹 Clear search and filters
-- 👤 Contact avatar
+- 👤 Contact avatar with name initial
 - 📊 Dynamic contact count
 - 📱 Responsive design
-- ⚡ Fast development with Vite
+- 🔗 REST API integration
+- ⚡ Fast Vite development environment
 
 ---
 
-## 🛠️ Technologies
+## 🛠️ Tech Stack
+
+### Frontend
 
 - React
 - JavaScript
 - Vite
 - Axios
-- CSS
-- HTML
+- HTML5
+- CSS3
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- REST API
+
+---
+
+## 🏗️ Application Architecture
+
+```text
+┌─────────────────────────────┐
+│       React Frontend        │
+│         Vite + CSS          │
+└──────────────┬──────────────┘
+               │
+               │ Axios
+               │ HTTP Requests
+               ▼
+┌─────────────────────────────┐
+│       Express Backend       │
+│        REST API             │
+└──────────────┬──────────────┘
+               │
+               │ Mongoose
+               ▼
+┌─────────────────────────────┐
+│          MongoDB            │
+│        Contact Data         │
+└─────────────────────────────┘
+```
 
 ---
 
@@ -43,106 +96,258 @@ It provides a responsive user interface for managing contacts through the backen
 frontend/
 │
 ├── public/
+│   ├── favicon.svg
+│   └── icons.svg
 │
 ├── src/
+│   ├── assets/
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   │
 │   ├── App.jsx
 │   ├── App.css
 │   ├── index.css
 │   └── main.jsx
 │
+├── .gitignore
+├── eslint.config.js
+├── index.html
 ├── package.json
 ├── package-lock.json
-└── vite.config.js
+├── vite.config.js
+└── README.md
 ```
 
 ---
 
 ## 🔗 Backend API
 
-The frontend communicates with the Express backend using Axios.
+The frontend communicates with the deployed Express backend using Axios.
 
-Local API:
+### Production API
 
 ```text
-http://localhost:5000/api/contacts
+https://contact-manager-api-x1er.onrender.com/api/contacts
+```
+
+### API Operations
+
+```text
+POST    /api/contacts
+GET     /api/contacts
+GET     /api/contacts/:id
+PUT     /api/contacts/:id
+DELETE  /api/contacts/:id
 ```
 
 ---
 
 ## ⚙️ Installation
 
-### 1. Navigate to Frontend
+### 1. Clone the Repository
 
 ```bash
-cd frontend
+git clone https://github.com/Mobin977/contact-manager.git
 ```
 
-### 2. Install Dependencies
+### 2. Navigate to the Frontend
+
+```bash
+cd contact-manager/frontend
+```
+
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Start Development Server
+### 4. Start Development Server
 
 ```bash
 npm run dev
 ```
 
-Vite will display the local development URL in the terminal.
+Vite will provide a local development URL in the terminal.
 
 ---
 
-## 🔄 Application Flow
+## 🧪 Testing
 
-```text
-User
-  │
-  ▼
-React UI
-  │
-  │ Axios
-  ▼
-Express REST API
-  │
-  ▼
-MongoDB
-```
+The frontend has been tested with the deployed backend.
 
----
-
-## 🧪 Tested Features
+### Contact Management
 
 - ✅ Add contact
 - ✅ Display contacts
 - ✅ Edit contact
 - ✅ Update contact
 - ✅ Delete contact
+
+### Search
+
 - ✅ Search by name
 - ✅ Search by email
-- ✅ Search by phone
-- ✅ Category filtering
-- ✅ Combined search + category filtering
+- ✅ Search by phone number
+
+### Filtering
+
+- ✅ Personal category
+- ✅ Work category
+- ✅ Family category
+- ✅ Other category
+- ✅ Combined search + category filter
 - ✅ Clear filters
-- ✅ Responsive layout
+
+### Persistence
+
+- ✅ Contacts persist after browser refresh
+- ✅ Data is stored in MongoDB through the backend API
 
 ---
 
-## 🎯 Learning Outcomes
+## 🎯 React Concepts Used
 
-This frontend project demonstrates:
+This project demonstrates practical usage of:
 
-- React components
+- React functional components
 - `useState`
 - `useEffect`
-- Form handling
-- Controlled inputs
+- Controlled form inputs
+- Event handling
 - Conditional rendering
+- Array mapping
 - Array filtering
-- API integration with Axios
-- CRUD UI operations
+- State updates
+- API requests with Axios
+- CRUD operations
 - Responsive CSS
-- State management
+
+---
+
+## 🔄 User Flow
+
+```text
+User opens application
+        ↓
+React loads contacts
+        ↓
+Axios requests backend API
+        ↓
+Express API
+        ↓
+MongoDB
+        ↓
+Contacts returned to React
+        ↓
+Contacts displayed
+```
+
+### Adding a Contact
+
+```text
+User fills form
+      ↓
+React state
+      ↓
+POST request
+      ↓
+Express API
+      ↓
+MongoDB
+      ↓
+New contact returned
+      ↓
+UI updated
+```
+
+### Editing a Contact
+
+```text
+Click Edit
+    ↓
+Contact data loaded into form
+    ↓
+User modifies information
+    ↓
+PUT request
+    ↓
+MongoDB updated
+    ↓
+Updated contact displayed
+```
+
+### Deleting a Contact
+
+```text
+Click Delete
+     ↓
+Confirmation
+     ↓
+DELETE request
+     ↓
+MongoDB
+     ↓
+Contact removed
+     ↓
+UI updated
+```
+
+---
+
+## 📱 Responsive Design
+
+The application is designed to work across:
+
+- 💻 Desktop
+- 💻 Laptop
+- 📱 Tablet
+- 📱 Mobile
+
+The contact grid automatically adjusts based on screen size.
+
+---
+
+## 🚀 Deployment
+
+### Frontend
+
+The React application is deployed using Vercel.
+
+[Open Live Frontend](https://contact-manager-five-blond.vercel.app/?utm_source=chatgpt.com)
+
+### Backend
+
+The Express API is deployed using Render.
+
+[Open Backend API](https://contact-manager-api-x1er.onrender.com/?utm_source=chatgpt.com)
+
+---
+
+## 🔐 Security
+
+Sensitive environment variables are not stored in the frontend repository.
+
+The backend MongoDB connection string is stored securely in the backend environment variables and is **not committed to GitHub**.
+
+---
+
+## 🔮 Future Improvements
+
+Potential improvements include:
+
+- 🔐 User authentication
+- 👥 User-specific contacts
+- ⭐ Favorite contacts
+- 📷 Contact profile images
+- 📥 Import contacts from CSV
+- 📤 Export contacts to CSV
+- 📄 Pagination
+- 🌙 Dark mode
+- 📧 Email integration
+- 🔔 Contact reminders
+- 📱 Progressive Web App support
 
 ---
 
@@ -150,14 +355,18 @@ This frontend project demonstrates:
 
 **Shaik Mobin**
 
-GitHub:
-https://github.com/Mobin977
+GitHub: [Mobin977](https://github.com/Mobin977?utm_source=chatgpt.com)
 
-LinkedIn:
-https://www.linkedin.com/in/mobin-shaik-65900541/
+LinkedIn: [Shaik Mobin on LinkedIn](https://www.linkedin.com/in/mobin-shaik-65900541/?utm_source=chatgpt.com)
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 ---
 
 ## 📄 License
 
-This project is created for learning and portfolio purposes.
+This project was created for learning and portfolio purposes.
