@@ -1,67 +1,44 @@
 # 📱 Contact Manager
 
-A full-stack **Contact Management Application** built with **React, Node.js, Express, and MongoDB**.
+A full-stack **Contact Manager** application built with **React, Node.js, Express, and MongoDB**.
 
-The application allows users to create, view, edit, delete, search, and filter contacts through a clean and responsive interface.
+The application allows users to create, view, search, filter, edit, and delete contacts through a clean and responsive interface.
 
 ---
 
 ## 🚀 Live Demo
 
-### Frontend
+### 🌐 Frontend
 
-Coming soon
+[Contact Manager Live App](https://contact-manager-five-blond.vercel.app/?utm_source=chatgpt.com)
 
-### Backend API
+### ⚙️ Backend API
 
-Coming soon
+[Contact Manager API](https://contact-manager-api-x1er.onrender.com/?utm_source=chatgpt.com)
 
----
+### 💻 GitHub Repository
 
-## 📸 Screenshots
-
-> Add your project screenshots here after deployment.
-
-### Contact Manager Dashboard
-
-![Contact Manager Dashboard](screenshots/dashboard.png)
-
-### Add Contact
-
-![Add Contact](screenshots/add-contact.png)
-
-### Search & Filter
-
-![Search and Filter](screenshots/search-filter.png)
-
-### Edit Contact
-
-![Edit Contact](screenshots/edit-contact.png)
+[Contact Manager GitHub Repository](https://github.com/Mobin977/contact-manager?utm_source=chatgpt.com)
 
 ---
 
 ## ✨ Features
 
 - ➕ Add new contacts
-- 👀 View all contacts
+- 👤 Display contacts
 - ✏️ Edit existing contacts
-- 🔄 Update contact information
 - 🗑️ Delete contacts
-- 🔍 Search contacts by:
-  - Name
-  - Email
-  - Phone number
-
+- 🔍 Search contacts
 - 🏷️ Filter contacts by category
-- 🔎 Combine search and category filters
+- 🔎 Combine search and category filtering
 - 🧹 Clear search and filters
-- 👤 Contact avatar with name initial
-- 📊 Dynamic contact count
+- 📊 Display total contact count
+- 👤 Automatic avatar initials
 - 📱 Responsive design
 - 💾 MongoDB data persistence
-- 🔗 REST API
-- ⚡ Fast React frontend
-- 🛡️ Backend validation
+- 🔄 REST API integration
+- ⚡ React-based frontend
+- 🌐 Deployed frontend and backend
 
 ---
 
@@ -85,28 +62,38 @@ Coming soon
 - CORS
 - dotenv
 
-### Development Tools
+### Deployment
 
-- VS Code
-- Git
-- GitHub
-- Postman
-- MongoDB
+- Vercel — Frontend
+- Render — Backend
+- MongoDB — Database
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ Application Architecture
 
 ```text
-React Frontend
-      │
-      │ Axios HTTP Requests
-      ▼
-Express.js REST API
-      │
-      │ Mongoose
-      ▼
-MongoDB Database
+                    ┌──────────────────────┐
+                    │      React App       │
+                    │      Frontend        │
+                    │       Vercel         │
+                    └──────────┬───────────┘
+                               │
+                               │ HTTP Requests
+                               │ Axios
+                               ▼
+                    ┌──────────────────────┐
+                    │    Express Server    │
+                    │       Node.js        │
+                    │       Render         │
+                    └──────────┬───────────┘
+                               │
+                               │ Mongoose
+                               ▼
+                    ┌──────────────────────┐
+                    │       MongoDB        │
+                    │      Database        │
+                    └──────────────────────┘
 ```
 
 ---
@@ -116,111 +103,182 @@ MongoDB Database
 ```text
 contact-manager/
 │
+├── README.md
+├── .gitignore
+│
 ├── frontend/
-│   │
-│   ├── public/
-│   │
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   ├── main.jsx
-│   │   └── index.css
-│   │
+│   ├── README.md
 │   ├── package.json
-│   └── vite.config.js
+│   ├── index.html
+│   └── src/
+│       ├── App.jsx
+│       ├── App.css
+│       ├── main.jsx
+│       └── index.css
 │
-├── backend/
-│   │
-│   ├── controllers/
-│   │   └── contactController.js
-│   │
-│   ├── models/
-│   │   └── Contact.js
-│   │
-│   ├── routes/
-│   │   └── contactRoutes.js
-│   │
-│   ├── .env
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
+└── backend/
+    ├── README.md
+    ├── package.json
+    ├── server.js
+    ├── .env
+    │
+    ├── models/
+    │   └── Contact.js
+    │
+    ├── controllers/
+    │   └── contactController.js
+    │
+    └── routes/
+        └── contactRoutes.js
 ```
 
 ---
 
-## 📋 Contact Data Model
+## 🔥 Core Functionality
 
-Each contact contains:
+### 1. Create Contact
+
+Users can create a contact with:
+
+- Name
+- Email
+- Phone
+- Address
+- Category
+
+Supported categories:
 
 ```text
-name
-email
-phone
-address
-category
-createdAt
-updatedAt
+Personal
+Work
+Family
+Other
 ```
 
-### Categories
+---
 
-- Personal
-- Work
-- Family
-- Other
+### 2. View Contacts
+
+All contacts are retrieved from the backend API and displayed in the React application.
+
+Contacts are sorted by creation date, with the newest contacts displayed first.
+
+---
+
+### 3. Edit Contact
+
+Users can select a contact and update its information.
+
+The frontend sends a `PUT` request to the backend API.
+
+---
+
+### 4. Delete Contact
+
+Users can delete contacts directly from the interface.
+
+The frontend sends a `DELETE` request to the backend.
+
+---
+
+### 5. Search
+
+Contacts can be searched by:
+
+- Name
+- Email
+- Phone number
+
+Example:
+
+```text
+Search: Rahul
+```
+
+The application displays matching contacts immediately.
+
+---
+
+### 6. Category Filter
+
+Users can filter contacts by:
+
+```text
+All Categories
+Personal
+Work
+Family
+Other
+```
+
+---
+
+### 7. Combined Filtering
+
+Search and category filtering work together.
+
+For example:
+
+```text
+Search: Rahul
+Category: Personal
+```
+
+Only matching personal contacts are displayed.
 
 ---
 
 ## 🔌 REST API
 
-Base URL:
+### Base URL
+
+Production:
+
+```text
+https://contact-manager-api-x1er.onrender.com/api/contacts
+```
+
+Local:
 
 ```text
 http://localhost:5000/api/contacts
 ```
 
-### Create Contact
+### Endpoints
 
-```http
-POST /api/contacts
-```
+| Method | Endpoint            | Description        |
+| ------ | ------------------- | ------------------ |
+| POST   | `/api/contacts`     | Create contact     |
+| GET    | `/api/contacts`     | Get all contacts   |
+| GET    | `/api/contacts/:id` | Get single contact |
+| PUT    | `/api/contacts/:id` | Update contact     |
+| DELETE | `/api/contacts/:id` | Delete contact     |
 
-### Get All Contacts
+---
 
-```http
-GET /api/contacts
-```
+## 📦 Example Contact
 
-### Get Single Contact
-
-```http
-GET /api/contacts/:id
-```
-
-### Update Contact
-
-```http
-PUT /api/contacts/:id
-```
-
-### Delete Contact
-
-```http
-DELETE /api/contacts/:id
+```json
+{
+  "name": "Rahul Sharma",
+  "email": "rahul.sharma@gmail.com",
+  "phone": "9876543210",
+  "address": "Tirupati, Andhra Pradesh",
+  "category": "Personal"
+}
 ```
 
 ---
 
 ## ⚙️ Installation
 
-### 1. Clone the Repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/contact-manager.git
+git clone https://github.com/Mobin977/contact-manager.git
 ```
 
-### 2. Go to the Project
+Move into the project:
 
 ```bash
 cd contact-manager
@@ -228,34 +286,39 @@ cd contact-manager
 
 ---
 
-# 🔧 Backend Setup
+## 🖥️ Frontend Setup
 
-### 3. Navigate to Backend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs locally at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## ⚙️ Backend Setup
+
+Open another terminal:
 
 ```bash
 cd backend
-```
-
-### 4. Install Dependencies
-
-```bash
 npm install
 ```
 
-### 5. Create `.env`
-
-Create a `.env` file inside the `backend` folder:
+Create a `.env` file:
 
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 ```
 
-> Never upload your `.env` file or MongoDB credentials to GitHub.
-
-### 6. Start Backend
-
-Development mode:
+Start the backend:
 
 ```bash
 npm run dev
@@ -267,7 +330,7 @@ Or:
 node server.js
 ```
 
-Backend will run on:
+Backend runs locally at:
 
 ```text
 http://localhost:5000
@@ -275,98 +338,179 @@ http://localhost:5000
 
 ---
 
-# 💻 Frontend Setup
+## 🔐 Environment Variables
 
-Open another terminal.
+The backend requires:
 
-### 7. Navigate to Frontend
-
-```bash
-cd frontend
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
 ```
 
-### 8. Install Dependencies
+> Never commit `.env` files or database credentials to GitHub.
 
-```bash
-npm install
-```
-
-### 9. Start React Application
-
-```bash
-npm run dev
-```
-
-The frontend will run on the Vite development URL shown in your terminal.
+The `.gitignore` file excludes environment variables and dependencies.
 
 ---
 
 ## 🧪 Testing
 
-The following functionality has been tested:
+The following CRUD operations were tested successfully:
 
-### CRUD Operations
+### Create
 
-- ✅ Create contact
-- ✅ Read contacts
-- ✅ Update contact
-- ✅ Delete contact
+```text
+POST /api/contacts
+```
 
-### Search
+### Read
 
-- ✅ Search by name
-- ✅ Search by email
-- ✅ Search by phone
+```text
+GET /api/contacts
+GET /api/contacts/:id
+```
 
-### Filtering
+### Update
 
-- ✅ Personal
-- ✅ Work
-- ✅ Family
-- ✅ Other
-- ✅ Combined search + category filtering
-- ✅ Clear filters
+```text
+PUT /api/contacts/:id
+```
+
+### Delete
+
+```text
+DELETE /api/contacts/:id
+```
+
+Frontend functionality tested:
+
+- Add contact
+- Edit contact
+- Update contact
+- Delete contact
+- Search
+- Category filter
+- Search + category filter
+- Clear filter
+- Refresh persistence
 
 ---
 
-## 🎯 Learning Outcomes
+## 📱 Responsive Design
 
-This project helped demonstrate practical experience with:
+The application is designed to work across:
 
+- 💻 Desktop
+- 📱 Mobile
+- 📲 Tablet
+
+The contact grid automatically adjusts based on screen size.
+
+---
+
+## 🔄 User Flow
+
+```text
+Open Application
+       ↓
+Load Contacts
+       ↓
+Display Contact List
+       ↓
+ ┌─────┼─────────┐
+ ↓     ↓         ↓
+Add   Search    Filter
+ ↓     ↓         ↓
+Create Results  Category
+       ↓         ↓
+       └────┬────┘
+            ↓
+       Select Contact
+            ↓
+      Edit / Delete
+            ↓
+        Update UI
+```
+
+---
+
+## 🧠 What I Learned
+
+This project helped me practice:
+
+- React components
 - React state management
 - React hooks
-- Form handling
-- Conditional rendering
-- REST API integration
-- Axios
+- Controlled forms
+- Axios API requests
+- REST API development
 - Express routing
-- MVC-style backend structure
-- MongoDB database operations
-- Mongoose models
+- Express controllers
+- MongoDB
+- Mongoose schemas
 - CRUD operations
-- Search and filtering
-- Responsive CSS
+- CORS
 - Environment variables
-- Full-stack application architecture
+- Error handling
+- Search functionality
+- Filtering
+- Responsive CSS
+- Git and GitHub
+- Vercel deployment
+- Render deployment
 
 ---
 
-## 🔮 Future Improvements
+## 🚀 Future Improvements
 
 Possible future features:
 
 - 🔐 User authentication
 - 👥 Multiple user accounts
-- ☁️ Cloud deployment
-- 📷 Contact profile images
-- 📥 Import contacts from CSV
-- 📤 Export contacts to CSV
 - ⭐ Favorite contacts
-- 📑 Pagination
+- 📸 Contact profile images
+- 📥 Import contacts
+- 📤 Export contacts
+- 📊 Contact analytics
 - 🌙 Dark mode
-- 📧 Email integration
-- 🔔 Contact reminders
+- 🔔 Notifications
+- 📄 Pagination
+- 🔎 Advanced search
 - 📱 PWA support
+
+---
+
+## 📸 Screenshots
+
+Screenshots can be added here:
+
+```text
+screenshots/
+├── dashboard.png
+├── add-contact.png
+├── search.png
+└── edit-contact.png
+```
+
+---
+
+## 📌 Project Highlights
+
+This project demonstrates a complete full-stack workflow:
+
+```text
+React
+  ↓
+Axios
+  ↓
+Express REST API
+  ↓
+Mongoose
+  ↓
+MongoDB
+```
+
+It also demonstrates deployment of a separate frontend and backend application.
 
 ---
 
@@ -374,20 +518,16 @@ Possible future features:
 
 **Shaik Mobin**
 
-GitHub:
-https://github.com/Mobin977
+### GitHub
 
-LinkedIn:
-https://www.linkedin.com/in/mobin-shaik-65900541/
-
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving the repository a ⭐ on GitHub.
+[Mobin977 GitHub](https://github.com/Mobin977?utm_source=chatgpt.com)
 
 ---
 
 ## 📄 License
 
-This project is created for learning and portfolio purposes.
+This project is available for educational and portfolio purposes.
+
+---
+
+⭐ If you found this project useful, consider giving the repository a star!
